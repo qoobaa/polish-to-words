@@ -1,5 +1,4 @@
 (function () {
-
     var HUNDREDS = ["", " sto ", " dwieście ", " trzysta ", " czterysta ", " pięćset ", " sześćset ", " siedemset ", " osiemset ", " dziewięćset "],
         TENS = ["", " dziesięć ", " dwadzieścia ", " trzydzieści ", " czterdzieści ", " pięćdziesiąt ", " sześćdziesiąt ", " siedemdziesiąt ", " osiemdziesiąt ", " dziewięćdziesiąt "],
         TEENS = ["", " jedenaście ", " dwanaście ", " trzynaście ", " czternaście ", " piętnaście ", " szesnaście ", " siedemnaście ", " osiemnaście ", " dziewiętnaście "],
@@ -87,5 +86,4 @@
     } else {
         this.polishToWords = polishToWords;
     }
-
 }).call(this);
