@@ -1,13 +1,13 @@
 (function () {
 
-    var HUNDREDS = ["", "sto ", "dwieście ", "trzysta ", "czterysta ", "pięćset ", "sześćset ", "siedemset ", "osiemset ", "dziewięćset "],
-        TENS = ["", "dziesięć ", "dwadzieścia ", "trzydzieści ", "czterdzieści ", "pięćdziesiąt ", "sześćdziesiąt ", "siedemdziesiąt ", "osiemdziesiąt ", "dziewięćdziesiąt "],
-        TEENS = ["", "jedenaście ", "dwanaście ", "trzynaście ", "czternaście ", "piętnaście ", "szesnaście ", "siedemnaście ", "osiemnaście ", "dziewiętnaście "],
-        UNITIES = ["", "jeden ", "dwa ", "trzy ", "cztery ", "pięć ", "sześć ", "siedem ", "osiem ", "dziewięć "],
+    var HUNDREDS = ["", " sto ", " dwieście ", " trzysta ", " czterysta ", " pięćset ", " sześćset ", " siedemset ", " osiemset ", " dziewięćset "],
+        TENS = ["", " dziesięć ", " dwadzieścia ", " trzydzieści ", " czterdzieści ", " pięćdziesiąt ", " sześćdziesiąt ", " siedemdziesiąt ", " osiemdziesiąt ", " dziewięćdziesiąt "],
+        TEENS = ["", " jedenaście ", " dwanaście ", " trzynaście ", " czternaście ", " piętnaście ", " szesnaście ", " siedemnaście ", " osiemnaście ", " dziewiętnaście "],
+        UNITIES = ["", " jeden ", " dwa ", " trzy ", " cztery ", " pięć ", " sześć ", " siedem ", " osiem ", " dziewięć "],
         ZERO = "zero",
-        MINUS = "minus",
-        THOUSANDS = { one: "tysiąc", few: "tysiące", many: "tysięcy" },
-        MILIONS = { one: "milion", few: "miliony", many: "milionów" },
+        MINUS = " minus ",
+        THOUSANDS = { one: " tysiąc ", few: " tysiące ", many: " tysięcy " },
+        MILIONS = { one: " milion ", few: " miliony ", many: " milionów " },
         OVERFLOW = "zbyt dużo";
 
     function process0999(digits) {
@@ -36,8 +36,11 @@
     };
 
     function polishToWords(number) {
-        var result = "",
-            digits = String(Math.floor(Math.abs(number))).split("");
+        var digits,
+            result = "";
+
+        number = parseInt(number, 10);
+        digits = String(Math.floor(Math.abs(number))).split("");
 
         for (var i = 0; i < digits.length; i++) {
             digits[i] = parseInt(digits[i], 10);
@@ -47,7 +50,7 @@
             return OVERFLOW;
         }
 
-        if (number < 0) {
+        if (parseInt(number, 10) < 0) {
             result += MINUS;
         }
 
@@ -59,17 +62,17 @@
             result += ZERO;
         } else {
             result += process0999(digits.slice(0, 3));
+
             if (digits.slice(0, 3).join("") !== "000") {
                 result += MILIONS[classify(digits.slice(0, 3))];
             }
 
-            result += " ";
             result += process0999(digits.slice(3, 6));
+
             if (digits.slice(3, 6).join("") !== "000") {
                 result += THOUSANDS[classify(digits.slice(3, 6))];
             }
 
-            result += " ";
             result += process0999(digits.slice(6, 9));
         }
 
