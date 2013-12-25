@@ -1,0 +1,24 @@
+{
+  "name": "polish-to-words",
+  "version": "0.0.0",
+  "description": "JavaScript library to convert a number to its word representation in Polish language",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kuba Kuźma",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cowbell/polish-to-words.git"
+  },
+  "keywords": [
+    "polish",
+    "number",
+    "words"
+  ],
+  "bugs": {
+    "url": "https://github.com/cowbell/polish-to-words/issues"
+  },
+  "homepage": "https://github.com/cowbell/polish-to-words"
+}
