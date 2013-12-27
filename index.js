@@ -7,7 +7,8 @@
         MINUS = " minus ",
         THOUSANDS = { one: " tysiąc ", few: " tysiące ", many: " tysięcy " },
         MILIONS = { one: " milion ", few: " miliony ", many: " milionów " },
-        OVERFLOW = "zbyt dużo";
+        POSITIVE_OVERFLOW = "zbyt dużo",
+        NEGATIVE_OVERFLOW = "zbyt mało";
 
     function process0999(digits) {
         var result = "";
@@ -46,7 +47,7 @@
         }
 
         if (digits.length > 9) {
-            return OVERFLOW;
+            return number > 0 ? POSITIVE_OVERFLOW : NEGATIVE_OVERFLOW;
         }
 
         if (parseInt(number, 10) < 0) {

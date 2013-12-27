@@ -4,7 +4,7 @@
   "description": "JavaScript library to convert a number to its word representation in Polish language",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true"
   },
   "author": "Kuba Kuźma",
   "license": "MIT",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/cowbell/polish-to-words/issues"
   },
-  "homepage": "https://github.com/cowbell/polish-to-words"
+  "homepage": "https://github.com/cowbell/polish-to-words",
+  "devDependencies": {
+    "phantomjs": "~1.9.2-6"
+  }
 }
