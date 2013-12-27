@@ -1,6 +1,6 @@
 {
   "name": "polish-to-words",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "JavaScript library to convert a number to its word representation in Polish language",
   "main": "index.js",
   "scripts": {
